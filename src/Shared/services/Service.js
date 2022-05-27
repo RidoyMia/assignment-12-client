@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './Service.css';
 
 const Service = (props) => {
-    const{_id,balance,picture,name,description,quantity} = props.service;
+    const{_id,per_price,picture,name,description,quantity} = props.service;
     const navigate = useNavigate()
     const ordernow = id =>{
         navigate(`/order/${id}`)
@@ -15,6 +15,7 @@ const Service = (props) => {
                    <img height="200px" className='text-center w-100' src={picture} alt="" />
                     <h2 className='text-center'>{name}</h2>
                     <p>{description.slice(0,90)}....</p>
+                    <h4>Per price : {per_price}</h4>
                     <p>available : {quantity}</p>
                     <button className='banner-button' onClick={()=>ordernow(_id)}>Order now</button>
             </div>

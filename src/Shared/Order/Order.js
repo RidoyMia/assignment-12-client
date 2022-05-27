@@ -31,6 +31,7 @@ const Order = () => {
             email : user?.email,
             name : service?.name,
             quantity : quantity,
+            per_price : service.per_price,
            }
            fetch('http://localhost:9000/order', {
       method: 'POST', // or 'PUT'
@@ -86,8 +87,8 @@ const Order = () => {
             </div>
             <div>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-                   
-                   <Form.Control  type="number" onBlur={restock} />
+                   <p>Restock</p>
+                   <Form.Control  type="number" onBlur={restock} placeholder="restock" />
                    <button onClick={update}>update</button>
                   
             </Form.Group>
@@ -114,8 +115,8 @@ const Order = () => {
                     <Form.Control type="number" placeholder="you can order getter than 1000"  value={quantity}  />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                   
-                    <Form.Control type="number" placeholder="you can order getter than 1000"  value={quantity * 1000}  />
+                     <p>per-price</p>
+                    <Form.Control type="number" placeholder="you can order getter than 1000"  value={service.per_price}  />
                 </Form.Group>
             
                 <Button variant="primary" type="submit">

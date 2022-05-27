@@ -19,8 +19,10 @@ const Dashboard = () => {
     if(ami){
     const identity = users.find(u => u.email === User?.email);
     identi.push(identity)
+    
   
     }
+    console.log(identi)
     
     
   

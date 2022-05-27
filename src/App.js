@@ -12,6 +12,7 @@ import Dashboard from './components/Pages/Dashboard/Dashboard';
 import Users from './Shared/Users/Users';
 import Profile from './Shared/Profile/Profile';
 import Footer from './components/Pages/Home/Footer/Footer';
+import Payment from './Shared/Payment/Payment';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/dashboard' element={<Dashboard></Dashboard>}>
            <Route path='users' element={<Users></Users>}></Route>
+           <Route path='payment' element={<Payment></Payment>}></Route>
            <Route path='profile' element={<Profile></Profile>}></Route>
         </Route>
         <Route path='/order/:id' element={
