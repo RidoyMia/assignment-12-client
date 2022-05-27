@@ -5,7 +5,7 @@ import bannertwo from '../../banner/cyclepone-removebg-preview.png';
 import bannerthree from '../../banner/cyclethree-removebg-preview.png';
 import './Banner.css';
 
-///
+
 const Banner = () => {
     return (
         <div className='py-5'>
