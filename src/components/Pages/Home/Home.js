@@ -5,7 +5,7 @@ import Services from '../../../Shared/services/Services';
 import Cycle from './Cycle/Cycle';
 import HomeBlog from './HomeBlog/HomeBlog';
 import Summary from './Summary/Summary';
-
+//
 const Home = () => {
     return (
         <div>
