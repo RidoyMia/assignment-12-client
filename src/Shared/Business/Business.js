@@ -29,7 +29,7 @@ const Business = () => {
                 <Col md="4">
                     <div style={{textAlign :'center',padding:'50px'}}>
                         <img height="100px" style={{borderRadius:"50%", marginLeft : 'auto'}} src={img3} alt="" />
-                        <h3>Jhon Doue<FontAwesomeIcon icon={faCoffee} /></h3>
+                        <h3>Jhon Doue</h3>
                         <p>Add two different sections on the home page and the 6 sections mentioned above. Tips: This is the place to shine. Add something different and unique to make your website looks different than </p>
                     </div>
                 </Col>
