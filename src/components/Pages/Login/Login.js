@@ -75,8 +75,9 @@ const Login = () => {
                 <Button variant="primary" type="submit" >
                     Submitt
                 </Button>
+                
                 {
-                    Error? <p>{Error}</p> : ''
+                    error?error.message : ''
                 }
             </Form>
             <Google></Google>
