@@ -30,7 +30,7 @@ const Login = () => {
     const submit = event =>{
         event.preventDefault()
         signInWithEmailAndPassword(email, password)
-        navigate(from, { replace: true });
+        
     }
     if(User){
         const currentUser = {
