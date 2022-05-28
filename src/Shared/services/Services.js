@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import Loading from '../Loading/Loading';
 import Service from './Service';
 
 const Services = () => {
     const[services,setServices] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:9000/available')
+        fetch('https://blooming-basin-80189.herokuapp.com/available')
         .then(res => res.json())
         .then(data=>setServices(data))
     },[])
+   if(!services){
+       return <Loading></Loading>
+   }
     return (
         <Container>
             <Row>

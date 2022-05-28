@@ -47,16 +47,20 @@ const Signup = () => {
         }
 
 
+
+
+
     }
     
     if(User){
         console.log(User);
         const currentUser = {
             email : User?.email,
-            name : User?.displayName,
+            
 
         }
-      fetch(`http://localhost:9000/User/${User.email}`,{
+        
+      fetch(`https://blooming-basin-80189.herokuapp.com/User/${User?.email}`,{
           method : 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -67,6 +71,7 @@ const Signup = () => {
       .then(data => {
           console.log('Success:', data);
       })
+      navigate('/')
       
     }
     return (

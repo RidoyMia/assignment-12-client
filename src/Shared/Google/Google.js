@@ -9,7 +9,7 @@ const Google = () => {
             email : User.email,
 
         }
-      fetch(`http://localhost:9000/User/${User.email}`,{
+      fetch(`https://blooming-basin-80189.herokuapp.com/${User.email}`,{
           method : 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -23,8 +23,8 @@ const Google = () => {
      
     }
     return (
-        <div>
-             <button onClick={() => signInWithGoogle()}>SignInWithGoogle</button>
+        <div className='text-center'>
+             <button style={{padding:'10px 30px',marginTop :'30px',backgroundColor:'pink',border :'none',borderRadius:'20px'}} onClick={() => signInWithGoogle()}>SignInWithGoogle</button>
         </div>
     );
 };

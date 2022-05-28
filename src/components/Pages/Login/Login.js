@@ -4,6 +4,7 @@ import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hook
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import Google from '../../../Shared/Google/Google';
+import Loading from '../../../Shared/Loading/Loading';
 
 const Login = () => {
     const[User] = useAuthState(auth)
@@ -17,7 +18,7 @@ const Login = () => {
       let location = useLocation();
    
       let from = location.state?.from?.pathname || "/";
-    
+   
     const[email,setEmail] = useState('');
     const[password,setPassword] = useState('');
     const emailhandler = event =>{
@@ -36,7 +37,7 @@ const Login = () => {
             email : User.email,
 
         }
-      fetch(`http://localhost:9000/User/${User.email}`,{
+      fetch(`https://blooming-basin-80189.herokuapp.com/User/${User.email}`,{
           method : 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -48,6 +49,9 @@ const Login = () => {
           console.log('Success:', data);
       })
       navigate(from, { replace: true });
+    }
+    if(loading){
+        return <Loading></Loading>
     }
     return (
         <div>

@@ -10,18 +10,28 @@ const Order = () => {
     const {id} = useParams();
    const[error,setError] = useState('');
    const[restockk,setRestock] = useState(0)
-    const[service,setService] = useState({});
+    const[service,setService] = useState();
     const[services,setServices] = useState([]);
     const[quantity,setQuantity] = useState(1000);
-   fetch(`http://localhost:9000/service/${id}`)
+   fetch(`https://blooming-basin-80189.herokuapp.com/available`)
    .then(res => res.json())
-   .then(data => setService(data));
-   const quantityhandler = event =>{
-       setQuantity(event.target.value);
+   .then(data => setServices(data));
+//    const quantityhandler = event =>{
+//        setQuantity(event.target.value);
+//    }
+const product = [];
+   if(services){
+     console.log(services)
+     const single = services?.find(u => u._id === id)
+   
+     if(single){
+          product.push(single)
+     }
    }
+   console.log(product[0]?.quantity)
    const submit = event =>{
        event.preventDefault()
-       if(quantity > service.quantity){
+       if(quantity > product[0]?.quantity){
            setError('not available')
        }
       
@@ -29,11 +39,11 @@ const Order = () => {
         const booking={
             userName : user?.displayName,
             email : user?.email,
-            name : service?.name,
+            name : product[0]?.name,
             quantity : quantity,
-            per_price : service.per_price,
+            per_price : product[0]?.per_price,
            }
-           fetch('http://localhost:9000/order', {
+           fetch('https://blooming-basin-80189.herokuapp.com/order', {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
@@ -45,7 +55,7 @@ const Order = () => {
       console.log('Success:', data);
     });
     
-       fetch('http://localhost:9000/order',{
+       fetch('https://blooming-basin-80189.herokuapp.com/order',{
            method : 'PUT',
            headers: {
             'Content-Type': 'application/json',
@@ -70,16 +80,17 @@ const Order = () => {
 
   
     return (
-        <div>
+        
+            
            <Row>
                <Col md="3"></Col>
-               <Col md="6">
+               <Col md="6"> 
                   
                <div className='card-container py-5'>
-                   <img height="200px" className='text-center w-100' src={service.picture} alt="" />
-                    <h2 className='text-center'>{service.name}</h2>
-                    <p>{service.description}</p>
-                    <p>available : {service.quantity}</p>
+                   <img height="200px" className='text-center w-100' src={product[0]?.picture} alt="" />
+                    <h2 className='text-center'>{product[0]?.name}</h2>
+                    <p>{product[0]?.description}</p>
+                    <p>available : {product[0]?.quantity}</p>
                     { 
                      error ? error : ''
                     }
@@ -106,7 +117,7 @@ const Order = () => {
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                    
-                    <Form.Control  type="name" placeholder="name" value={service.name} />
+                    <Form.Control  type="name" placeholder="name" value={product[0]?.name} />
                 </Form.Group>
                
                
@@ -116,7 +127,7 @@ const Order = () => {
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                      <p>per-price</p>
-                    <Form.Control type="number" placeholder="you can order getter than 1000"  value={service.per_price}  />
+                    <Form.Control type="number" placeholder="you can order getter than 1000"  value={product[0]?.per_price}  />
                 </Form.Group>
             
                 <Button variant="primary" type="submit">
@@ -127,7 +138,7 @@ const Order = () => {
                </Col>
            </Row>
             
-        </div>
+    
     );
 };
 

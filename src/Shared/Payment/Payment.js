@@ -7,23 +7,23 @@ const Payment = () => {
     const[user] = useAuthState(auth)
     const[order,setOrder] = useState([]);
     useEffect(()=>{
-        fetch(`http://localhost:9000/order/${user?.email}`)
+        fetch(`https://blooming-basin-80189.herokuapp.com/order/${user?.email}`)
         .then(res =>res.json())
         .then(data => setOrder(data))
     },[user])
-    console.log(order)
+    console.log(order,user)
 
     return (
         <div>
             <Container>
             <p>order :{order?.length}</p>
              <Row>
-                 <Col md="4"></Col>
-                 <Col md="4">
+                 <Col md="1"></Col>
+                 <Col md="10">
                      <ul>
-                         <h2>orders name</h2>
+                         
                         {
-                            order?.map(u => <li style={{listStyle : 'none'}}><p>{u.name}</p></li>)
+                            order?.map(u => <li style={{listStyle : 'none'}}><p>Product-name :{u?.name} , product-quantity {u?.quantity}</p></li>)
                         }
                      </ul>
                  </Col>

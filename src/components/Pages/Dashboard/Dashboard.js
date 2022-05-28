@@ -11,7 +11,7 @@ const Dashboard = () => {
     
     const[identi,setIdenti] = useState([]);
   useEffect(()=>{
-    fetch('http://localhost:9000/users')
+    fetch('https://blooming-basin-80189.herokuapp.com/users')
     .then(res => res.json())
     .then(data => setUsers(data))
   },[User])
@@ -22,9 +22,9 @@ const Dashboard = () => {
     
   
     }
+    //
+    
     console.log(identi)
-    
-    
   
     
     return (
@@ -33,13 +33,13 @@ const Dashboard = () => {
             <Row>
                 <Col md="4">
                     {
-                        identi[0]?.role ==='admin' ? <Link className='link' to='/dashboard/users'>Users</Link> : <p>if you are admin please reaload</p>
+                        identi[5]?.role ==='admin' ? <Link className='link' to='/dashboard/users'>Users</Link> :''
                       
           
                     }
                     <br />
-                    <Link className='link' to='/dashboard/profile'>profile</Link>
-                    <Link className='link' to='/dashboard/payment'>payment</Link>
+                   
+                    <Link className='link' to='/dashboard/payment'>My-orders</Link>
                 </Col>
                 <Col md="8">
                     <Outlet/>

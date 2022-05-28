@@ -11,7 +11,7 @@ const Header = () => {
     return (
             <Navbar  expand="lg">
  
-    <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+    <Navbar.Brand href="#">CycleRider</Navbar.Brand>
     <Navbar.Toggle aria-controls="navbarScroll" />
     <Navbar.Collapse id="navbarScroll">
       <Nav
@@ -20,13 +20,14 @@ const Header = () => {
         navbarScroll
       >
         <Link  className='link' to='/'>Home</Link>
+        {
+   user?<Link className='link' to='/dashboard'>Dashboard</Link> : ''
+ }
        
  {
    user?<Button onClick={()=>signOut(auth)}>SignOut</Button> :  <Link  className='link' to='/signin'>Signin</Link>
  }
- {
-   user?<Link className='link' to='/dashboard'>Dashboard</Link> : ''
- }
+
       </Nav>
     </Navbar.Collapse>
  

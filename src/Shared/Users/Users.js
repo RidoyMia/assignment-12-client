@@ -17,7 +17,7 @@ const[adminn,setAdminn] = useState({});
         name :single?.name,
         role : "admin",
     }
-    fetch(`http://localhost:9000/User/admin/${single?.email}`,{
+    fetch(`https://blooming-basin-80189.herokuapp.com/User/admin/${single?.email}`,{
       method :'PUT',
       headers : {
         'Content-Type' : 'application/json',
@@ -28,7 +28,7 @@ const[adminn,setAdminn] = useState({});
     .then(data => console.log(data))
   }
    
-    fetch('http://localhost:9000/users')
+    fetch('https://blooming-basin-80189.herokuapp.com/users')
     .then(res => res.json())
     .then(data => setUsers(data))
     const remove = id=>{
@@ -38,7 +38,7 @@ const[adminn,setAdminn] = useState({});
           name :single?.name,
         
       }
-      fetch(`http://localhost:9000/User/admin/${single?.email}`,{
+      fetch(`https://blooming-basin-80189.herokuapp.com/User/admin/${single?.email}`,{
         method :'PUT',
         headers : {
           'Content-Type' : 'application/json',
@@ -62,7 +62,7 @@ const[adminn,setAdminn] = useState({});
   </thead>
   <tbody>
    {
-       users.map(u =>  <tr>
+       users?.map(u =>  <tr>
       
         <td>{u.name}</td>
         <td>{u.email}</td>
