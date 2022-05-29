@@ -1,5 +1,5 @@
 my preject client repo link :https://github.com/programming-hero-web-course1/manufacturer-website-client-side-RidoyMia
-my clien live site link : https://visionary-centaur-2e73be.netlify.app/
+my clien live site link : https://warm-bunny-39d9e5.netlify.app/
 
 server site repo link : https://github.com/programming-hero-web-course1/manufacturer-website-server-side-RidoyMia;
 server site live link : https://blooming-basin-80189.herokuapp.com/
