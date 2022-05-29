@@ -13,6 +13,9 @@ import Users from './Shared/Users/Users';
 import Profile from './Shared/Profile/Profile';
 import Footer from './components/Pages/Home/Footer/Footer';
 import Payment from './Shared/Payment/Payment';
+import Notpound from './Notpound/Notpound';
+import Portfulio from './components/Pages/Home/Portfulio/Portfulio';
+import Blog from './components/Pages/Home/Blog/Blog';
 
 function App() {
   return (
@@ -32,6 +35,9 @@ function App() {
             <Order></Order>
           </Required>
         }></Route>
+        <Route path='/Portfulio' element={<Portfulio></Portfulio>}></Route>
+        <Route path='/blog' element={<Blog></Blog>}></Route>
+        <Route path='*' element={<Notpound></Notpound>}></Route>
       </Routes>
       <Footer></Footer>
     </Container>

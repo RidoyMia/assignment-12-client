@@ -60,7 +60,8 @@ const Signup = () => {
             
 
         }
-        
+        console.log(currentUser)
+        console.log(`https://blooming-basin-80189.herokuapp.com/User/${User?.email}`);
       fetch(`https://blooming-basin-80189.herokuapp.com/User/${User?.email}`,{
           method : 'PUT',
           headers: {

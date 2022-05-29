@@ -20,6 +20,8 @@ const Header = () => {
         navbarScroll
       >
         <Link  className='link' to='/'>Home</Link>
+        <Link  className='link' to='/portfulio'>My-portFulio</Link>
+        <Link  className='link' to='/blog'>Blog</Link>
         {
    user?<Link className='link' to='/dashboard'>Dashboard</Link> : ''
  }
