@@ -37,7 +37,7 @@ const Signup = () => {
     const confirmhandler = event =>{
         setConfirm(event.target.value)
     }
-    //
+    ////
     const submit = async(event) =>{
         event.preventDefault();
         if(password === confirm){
