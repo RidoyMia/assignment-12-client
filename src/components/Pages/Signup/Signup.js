@@ -37,6 +37,7 @@ const Signup = () => {
     const confirmhandler = event =>{
         setConfirm(event.target.value)
     }
+    //
     const submit = async(event) =>{
         event.preventDefault();
         if(password === confirm){
@@ -53,11 +54,11 @@ const Signup = () => {
 
     }
     
-    if(User){
+    if(User?.displayName){
         console.log(User);
         const currentUser = {
             email : User?.email,
-            
+            name : User?.displayName,
 
         }
         console.log(currentUser)

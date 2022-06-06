@@ -21,14 +21,14 @@ const Order = () => {
 //    }
 const product = [];
    if(services){
-     console.log(services)
+    
      const single = services?.find(u => u._id === id)
    
      if(single){
           product.push(single)
      }
    }
-   console.log(product[0]?.quantity)
+   
    const submit = event =>{
        event.preventDefault()
        if(quantity > product[0]?.quantity){
@@ -43,8 +43,8 @@ const product = [];
             quantity : quantity,
             per_price : product[0]?.per_price,
            }
-           fetch('https://blooming-basin-80189.herokuapp.com/order', {
-      method: 'POST', // or 'PUT'
+           fetch(`http://localhost:7000/order/${product[0]?.name}`, {
+      method: 'PUT', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
       },
